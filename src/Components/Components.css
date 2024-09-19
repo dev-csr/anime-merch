@@ -1,6 +1,43 @@
-.recommended{
-    height: 100%;
+.recommendations{
     width: 100%;
+}
+.recommendations-container{
+    position: relative;
+    display: flex;
+    top:0;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid navy;
+    border-radius: 10px;
+    background-color: rgb(34, 9, 73);
+    overflow: hidden;
+    height: 180px;
+}
+.allrecommendations-container{
+    top:0;
+    width: 100%;
+}
+.arrow-left, .arrow-right {
+    background-color: #1f0d64;
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+    position: absolute;
+    cursor: pointer;
+    height: 110px; 
+    top: 32%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.arrow-left {
+    left: 0;
+}
+
+.arrow-right {
+    right: 0;
 }
 
 .navbar{

@@ -14,12 +14,26 @@ const Recommended = () => {
     ApperalCollection.map(() => 0)
   );
   const SlideRef = useRef(null);
-  // const SlideLeft = () => {
-  //   SlideRef.current.scrollLeft -= SlideRef.current.offsetWidth;
-  // };
-  // const SlideRight = () => {
-  //   SlideRef.current.scrollLeft += SlideRef.current.offsetWidth;
-  // };
+  const SlideRefFigurine = useRef(null);
+  const SlideRefApparel = useRef(null);
+  const SlideLeft = () => {
+    SlideRef.current.scrollLeft -= SlideRef.current.offsetWidth;
+  };
+  const SlideRight = () => {
+    SlideRef.current.scrollLeft += SlideRef.current.offsetWidth;
+  };
+  const SlideLeftApperal = () => {
+    SlideRefApparel.current.scrollLeft -= SlideRefApparel.current.offsetWidth;
+  };
+  const SlideRightApperal = () => {
+    SlideRefApparel.current.scrollLeft += SlideRefApparel.current.offsetWidth;
+  };
+  const SlideLeftFigurine = () => {
+    SlideRefFigurine.current.scrollLeft -= SlideRefFigurine.current.offsetWidth;
+  };
+  const SlideRightFigurine = () => {
+    SlideRefFigurine.current.scrollLeft += SlideRefFigurine.current.offsetWidth;
+  };
   const handlemangarate = (index, newRate) => {
     const newManagerate = [...managerate];
     newManagerate[index] = newRate;
@@ -36,83 +50,115 @@ const Recommended = () => {
     setApperalRate(newApperalRate);
   };
   return (
-    <div>
-      <Heading>Manga Recommendations</Heading>
-
-      {/* <ArrowButton onClick={SlideLeft}>&lt;</ArrowButton> */}
-      <Item ref={SlideRef}>
-        {Collection.map((item, index) => (
-          <div key={index}>
-            <img src={item.url} alt={item.name} />
-            <TextContainer>
-              <p>{item.title}</p>
-              <Hr />
-              <p className="price">
-                <span>Price:</span>
-                {item.price}
-              </p>
-              <Hr />
-              <p>
-                <Rating
-                  rate={managerate[index]}
-                  setRate={(newRate) => handlemangarate(index, newRate)}
-                />
-              </p>
-            </TextContainer>
+    <div className="recommendations">
+      <div className="recommendations-container">
+        <div className="allrecommendations-container">
+          <div className="arrow-left">
+            <div onClick={SlideLeft}>&lt;</div>
           </div>
-        ))}
-      </Item>
-      {/* <ArrowButton onClick={SlideRight}>&gt;</ArrowButton> */}
-      <Heading>Figurine Recommendations</Heading>
-      <Item>
-        {FigurineCollection.map((item) => {
-          return (
-            <div key={item.id}>
-              <img src={item.image} alt={item.name} />
-              <TextContainer>
-                <p>{item.name}</p>
-                <Hr />
-                <p className="price">
-                  <span>Price:</span>
-                  {item.price}
-                </p>
-                <Hr />
-                <p>
-                  <Rating
-                    rate={figurineRate[item.id]}
-                    setRate={(newRate) => handlefigurinerate(item.id, newRate)}
-                  />
-                </p>
-              </TextContainer>
-            </div>
-          );
-        })}
-      </Item>
-      <Heading>Apperal Recommendations</Heading>
-      <Item>
-        {ApperalCollection.map((item) => {
-          return (
-            <div key={item.id}>
-              <img src={item.image} alt={item.name} />
-              <TextContainer>
-                <p>{item.title}</p>
-                <Hr />
-                <p className="price">
-                  <span>Price:</span>
-                  {item.price}
-                </p>
-                <Hr />
-                <p>
-                  <Rating
-                    rate={apparelRate[item.id]}
-                    setRate={(newRate) => handleapperalrate(item.id, newRate)}
-                  />
-                </p>
-              </TextContainer>
-            </div>
-          );
-        })}
-      </Item>
+          <Heading>Manga Recommendations</Heading>
+          <Item ref={SlideRef}>
+            {Collection.map((item, index) => (
+              <div key={index}>
+                <img src={item.url} alt={item.name} />
+                <TextContainer>
+                  <p>{item.title}</p>
+                  <Hr />
+                  <p className="price">
+                    <span>Price:</span>
+                    {item.price}
+                  </p>
+                  <Hr />
+                  <p>
+                    <Rating
+                      rate={managerate[index]}
+                      setRate={(newRate) => handlemangarate(index, newRate)}
+                    />
+                  </p>
+                </TextContainer>
+              </div>
+            ))}
+          </Item>
+          <div className="arrow-right">
+            <div onClick={SlideRight}>&gt;</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="recommendations-container">
+        <div className="allrecommendations-container">
+          <div className="arrow-left">
+            <div onClick={SlideLeftFigurine}>&lt;</div>
+          </div>
+          <Heading>Figurine Recommendations</Heading>
+          <Item ref={SlideRefFigurine}>
+            {FigurineCollection.map((item) => {
+              return (
+                <div key={item.id}>
+                  <img src={item.image} alt={item.name} />
+                  <TextContainer>
+                    <p>{item.name}</p>
+                    <Hr />
+                    <p className="price">
+                      <span>Price:</span>
+                      {item.price}
+                    </p>
+                    <Hr />
+                    <p>
+                      <Rating
+                        rate={figurineRate[item.id]}
+                        setRate={(newRate) =>
+                          handlefigurinerate(item.id, newRate)
+                        }
+                      />
+                    </p>
+                  </TextContainer>
+                </div>
+              );
+            })}
+          </Item>
+          <div className="arrow-right">
+            <div onClick={SlideRightFigurine}>&gt;</div>
+          </div>
+        </div>
+      </div>
+      <div className="recommendations-container">
+        <div className="allrecommendations-container">
+          <div className="arrow-left">
+            <div onClick={SlideLeftApperal}>&lt;</div>
+          </div>
+          <Heading>Apperal Recommendations</Heading>
+          <Item ref={SlideRefApparel}>
+            {ApperalCollection.map((item) => {
+              return (
+                <div key={item.id}>
+                  <img src={item.image} alt={item.name} />
+                  <TextContainer>
+                    <p>{item.title}</p>
+                    <Hr />
+                    <p className="price">
+                      <span>Price:</span>
+                      {item.price}
+                    </p>
+                    <Hr />
+                    <p>
+                      <Rating
+                        rate={apparelRate[item.id]}
+                        setRate={(newRate) =>
+                          handleapperalrate(item.id, newRate)
+                        }
+                      />
+                    </p>
+                  </TextContainer>
+                </div>
+              );
+            })}
+          </Item>
+        </div>
+        <div className="arrow-right">
+          <div onClick={SlideRightApperal}>&gt;</div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -120,28 +166,35 @@ const Recommended = () => {
 const Heading = styled.h2`
   justify-content: left;
   text-align: left;
-  margin: 10px;
+  margin: 0;
+  top: 0;
   font-size: 30px;
   color: white;
+  background-color: #1f0d64;
+  padding: 10px;
+  padding-left: 50px;
+  width: 100%;
 `;
-const ArrowButton = styled.button`
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 25px;
-  padding: 5px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  &: first-of-type {
-    left: 0;
-  }
-  &: last-of-type {
-    right: 0;
-  }
-`;
+// const div = styled.button`
+//   background-color: #1f0d64;
+//   border: none;
+//   color: white;
+//   font-size: 25px;
+//   padding: 10px;
+//   position: relative;
+//   cursor: pointer;
+//   top: 100px;
+//   transform: translateY(-50%);
+//   height: 25vh;
+
+//   z-index: 1;
+//   &: first-of-type {
+//     left: 0;
+//   }
+//   &: last-of-type {
+//     right: 0;
+//   }
+// `;
 const Item = styled.div`
   display: flex;
   align-items: center;

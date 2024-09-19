@@ -20,8 +20,7 @@ function ImageSlider(props) {
   return (
     <div className="slider-container">
       <SliderContent currentIndex={currentIndex} sliderImage={sliderImage} />
-      <div>
-        {/* <Arrows
+      {/* <Arrows
           prevSlide={() =>
             setcurrentIndex(currentIndex < 1 ? len : currentIndex - 1)
           }
@@ -29,12 +28,11 @@ function ImageSlider(props) {
             setcurrentIndex(currentIndex === len ? 0 : currentIndex + 1)
           }
         /> */}
-        <Dots
-          currentIndex={currentIndex}
-          sliderImage={sliderImage}
-          onclick={(currentIndex) => setcurrentIndex(currentIndex)}
-        />
-      </div>
+      <Dots
+        currentIndex={currentIndex}
+        sliderImage={sliderImage}
+        onclick={(currentIndex) => setcurrentIndex(currentIndex)}
+      />
     </div>
   );
 }

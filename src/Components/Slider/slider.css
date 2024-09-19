@@ -28,11 +28,13 @@ div {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #090520;
+  background-color: #1c1257;
   overflow: hidden;
-  height: var(--heights);
-  width: var(--widths);
+  height: 200px;
+  width: 300px;
   box-sizing: border-box;
+  border: 2px solid #000;
+  border-radius: 10px;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -44,8 +46,8 @@ div {
 }
 
 .slides {
-  height: var(--heights);
-  width: var(--widths);
+  height: 800px;
+  width: 1000px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -84,7 +86,7 @@ div {
 
 .slider-container:hover .prev,
 .slider-container:hover .next {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .slider-container:hover .prev:hover,
@@ -100,7 +102,7 @@ div {
   display: flex;
   top: 95%;
   justify-content: center;
-  z-index: 2;
+  z-index: 3;
 }
 
 .dot {
