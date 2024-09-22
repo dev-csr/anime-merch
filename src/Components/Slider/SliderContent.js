@@ -2,7 +2,7 @@ import React from "react";
 
 function SliderContent({ currentIndex, sliderImage }) {
   return (
-    <section>
+    <div className="slider__content">
       {sliderImage.map((slide, index) => (
         <div
           key={index}
@@ -16,7 +16,7 @@ function SliderContent({ currentIndex, sliderImage }) {
           <img className="slide-image" src={slide.urls} alt="" />
         </div>
       ))}
-    </section>
+    </div>
   );
 }
 

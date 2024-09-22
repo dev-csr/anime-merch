@@ -1,45 +1,49 @@
 .recommendations{
     width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    background-color: #f6f9fb;
 }
-.recommendations-container{
+
+.allrecommendations-container{
     position: relative;
     display: flex;
-    top:0;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid navy;
+    border: 2px solid #467fab;
     border-radius: 10px;
-    background-color: rgb(34, 9, 73);
+    background-color: #b9eefa;
     overflow: hidden;
     height: 180px;
+    scroll-behavior: smooth;
+    margin: auto;
+    width: 90%;
+    align-self: center;
+    margin-bottom: 20px;
 }
-.allrecommendations-container{
-    top:0;
-    width: 100%;
-}
-.arrow-left, .arrow-right {
-    background-color: #1f0d64;
-    color: white;
-    font-size: 25px;
-    padding: 10px;
-    position: absolute;
-    cursor: pointer;
-    height: 110px; 
-    top: 35%;
+
+.recommend_header{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
+    width: 100%;
+    background-color: #44d5f6;
+}
+.arrows{
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+}
+.arrow-left, .arrow-right{
+    cursor: pointer;
     z-index: 1;
 }
-
-.arrow-left {
-    left: 0;
+.next-click, .prev-click{
+    height: 20px;
+    width: 20px;
 }
-
-.arrow-right {
-    right: 0;
-}
-
 .navbar{
   position: relative;
   width: 100%;
@@ -54,9 +58,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    right: 10px;
+    left: 10px;
 }
 
 a{
+    display: flex;
     text-decoration: none;
     color: white;
     padding: 5px 7px;
@@ -80,7 +87,7 @@ a:hover{
     background-color: rgb(26, 37, 104) ;
 }
 
-.navbar-links{
+/* .navbar-links{
     display: flex;
     flex-direction: row; 
     padding: 10px 20px;
@@ -88,6 +95,9 @@ a:hover{
     background-color: #333;
     width:100%;
     text-align: center;
+} */
+.nav-links{
+    display: flex;
 }
 .navbar-links.show{
     display: flex;
@@ -119,10 +129,10 @@ a:hover{
     a{
         display: none;
     }
-    .navbar-links{
+    .nav-links{
         display: none;
     }
-    .navbar-links.show{
+    .nav-links.show{
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -157,7 +167,7 @@ a:hover{
         height: 40px;
         width: 80px;
     }
-    .navbar-links{
+    .nav-links{
         display: none;
         padding: 5px 7px;
         font-size: 10px;
