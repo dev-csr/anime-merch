@@ -1,6 +1,8 @@
 import "./Components.css";
 import logo from "./merchandise-high-resolution-logo.png";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link
+
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
   const toggle = () => {
@@ -11,12 +13,14 @@ const Header = () => {
       setOpen(false);
     }
   };
+
   useEffect(() => {
     document.addEventListener("click", handleOutsideClick);
     return () => {
       document.removeEventListener("click", handleOutsideClick);
     };
   }, [isOpen]);
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -27,30 +31,31 @@ const Header = () => {
           &#9776;
         </button>
         <div className={`nav-links ${isOpen ? "show" : ""}`}>
-          <a href="/home">
-            <img src="/images/home.png" alt="logo" />
+          {/* Replace <a> with <Link> */}
+          <Link to="/home">
+            <img src="/images/home.png" alt="home" />
             <span>Home</span>
-          </a>
-          <a href="/recommended">
-            <img src="images/like.svg" alt="logo" />
+          </Link>
+          <Link to="/recommended">
+            <img src="/images/like.svg" alt="recommended" />
             <span>Recommended</span>
-          </a>
-          <a href="/manga">
-            <img src="/images/book.svg" alt="logo" />
+          </Link>
+          <Link to="/Manga/AllManga">
+            <img src="/images/book.svg" alt="manga" />
             <span>Manga</span>
-          </a>
-          <a href="/figurine">
-            <img src="/images/figurine.png" alt="logo" />
+          </Link>
+          <Link to="/figurine">
+            <img src="/images/figurine.png" alt="figurine" />
             <span>Figurines</span>
-          </a>
-          <a href="/accessories">
-            <img src="/images/accessories.svg" alt="logo" />
+          </Link>
+          <Link to="/accessories">
+            <img src="/images/accessories.svg" alt="accessories" />
             <span>Accessories</span>
-          </a>
-          <a href="/Apparels">
-            <img src="/images/apparel.png" alt="logo" />
+          </Link>
+          <Link to="/apparels">
+            <img src="/images/apparel.png" alt="apparel" />
             <span>Apparels</span>
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

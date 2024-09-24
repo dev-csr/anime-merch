@@ -1,11 +1,12 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Collection from "./Collection";
-import "./Components.css";
+import "./../Components.css";
 import right from "./noun-arrow-button-3809812.svg";
 import left from "./noun-arrow-previous-button-2663438.svg";
 import FigurineCollection from "./FigurineCollection";
 import ApperalCollection from "./ApperalCollection";
+import { Link } from "react-router-dom";
 import Rating from "./Rating";
 const Recommended = () => {
   const [managerate, setManageRate] = useState(Collection.map(() => 0));
@@ -55,7 +56,7 @@ const Recommended = () => {
     <div className="recommendations">
       <div className="allrecommendations-container">
         <div className="recommend_header">
-          <Heading>Manga Recommendations</Heading>
+          <Heading>Manga</Heading>
           <div className="arrows">
             <div onClick={SlideLeft} className="arrow-left">
               <img src={left} alt="left" className="prev-click" />
@@ -87,11 +88,14 @@ const Recommended = () => {
             </div>
           ))}
         </Item>
+        <Link to="Manga/AllManga" className="view-all">
+          view all
+        </Link>
       </div>
 
       <div className="allrecommendations-container">
         <div className="recommend_header">
-          <Heading>Figurine Recommendations</Heading>
+          <Heading>Figurine</Heading>
           <div className="arrows">
             <div onClick={SlideLeftFigurine} className="arrow-left">
               <img src={left} alt="left" className="prev-click" />
@@ -127,11 +131,14 @@ const Recommended = () => {
             );
           })}
         </Item>
+        <Link to="Manga/AllManga" className="view-all">
+          view all
+        </Link>
       </div>
 
       <div className="allrecommendations-container">
         <div className="recommend_header">
-          <Heading>Apperal Recommendations</Heading>
+          <Heading>Apperal</Heading>
           <div className="arrows">
             <div onClick={SlideLeftApperal} className="arrow-left">
               <img src={left} alt="left" className="prev-click" />
@@ -166,6 +173,9 @@ const Recommended = () => {
             );
           })}
         </Item>
+        <Link to="Manga/AllManga" className="view-all">
+          view all
+        </Link>
       </div>
     </div>
   );
@@ -176,6 +186,7 @@ const Heading = styled.h2`
   text-align: left;
   margin: 0;
   top: 0;
+  left: 50px;
   font-size: 16px;
   color: black;
   background-color: white;

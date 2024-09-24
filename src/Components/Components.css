@@ -13,9 +13,9 @@
     align-items: center;
     border: 2px solid #467fab;
     border-radius: 10px;
-    background-color: #b9eefa;
+    background-color: #91dced;
     overflow: hidden;
-    height: 180px;
+    height: 195px;
     scroll-behavior: smooth;
     margin: auto;
     width: 90%;
@@ -30,6 +30,7 @@
     align-items: left;
     width: 100%;
     background-color: #44d5f6;
+    margin-bottom: 5px;
 }
 .arrows{
     display: flex;
@@ -85,6 +86,20 @@ img{
 a:hover{
     color: white;
     background-color: rgb(26, 37, 104) ;
+}
+
+.view-all{
+    background-color: hsl(191, 55%, 48%);
+    padding: 5px;
+    color: #250c5c;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1.5px rgb(200, 234, 237) solid;
+    
 }
 
 /* .navbar-links{
@@ -155,7 +170,6 @@ a:hover{
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     img{
-        display: none;
         height: 15px;
         width: 15px;
         padding: 5px;
